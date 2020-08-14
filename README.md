@@ -94,11 +94,11 @@ To refactor this code, and have it exploit the multi-core capability of the comp
     
    3. As many threads as twice the number of processing cores(8 threads):
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-8hilos.png){ width: 200px; }
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-8hilos.png)
 
    4. 50 threads
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-50hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual50hilos.png)
     
    5. 100 threads
     
@@ -111,7 +111,7 @@ To refactor this code, and have it exploit the multi-core capability of the comp
   With the above, and with the given execution times, make a graph of solution time vs. Number of threads. Analyze and hypothesize with your partner for the following
   questions (you can take into account what was reported by jVisualVM):
   
-   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/Grafica.png)
+   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/grafica_hilos.png)
   
    * According to Amdahls law, where S(n) is the theoretical improvement of performance, P the parallel fraction of the algorithm, and n the number of threads, the greater
     n, the better this improvement should be. Why is the best performance not achieved with the 500 threads? How is this performance compared when using 200 ?.
