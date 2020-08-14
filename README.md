@@ -5,8 +5,7 @@
  
 **3.** 
    * Salida iniciando los hilos con el método `start()`:
-   
-     ![salida con método start()](https://github.com/angipaola10/LAB1-ARSW/tree/master/BLACKLISTSEARCH/img/salida_start.png)
+     ![alt text](https://github.com/angipaola10/LAB1-ARSW/tree/master/BLACKLISTSEARCH/img/salida_start.png) 
 
    * Salida inciando los hilos con el método `run()`:
    
