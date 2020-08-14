@@ -86,23 +86,23 @@ To refactor this code, and have it exploit the multi-core capability of the comp
   
    1. A single thread
       
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-1hilo.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-1hilo.png)
     
    2. As many threads as processing cores(4 threads):
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-4hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-4hilos.png)
     
    3. As many threads as twice the number of processing cores(8 threads):
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-8hilos.png){ width: 200px; }
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-8hilos.png){ width: 200px; }
 
    4. 50 threads
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-50hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-50hilos.png)
     
    5. 100 threads
     
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-100hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/visual-100hilos.png)
       
    Para todos los casos se obtiene la siguiente salida, ya que se uso la misma dirección ip:
       
@@ -111,7 +111,7 @@ To refactor this code, and have it exploit the multi-core capability of the comp
   With the above, and with the given execution times, make a graph of solution time vs. Number of threads. Analyze and hypothesize with your partner for the following
   questions (you can take into account what was reported by jVisualVM):
   
-   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/grafica.png)
+   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/Grafica.png)
   
    * According to Amdahls law, where S(n) is the theoretical improvement of performance, P the parallel fraction of the algorithm, and n the number of threads, the greater
     n, the better this improvement should be. Why is the best performance not achieved with the 500 threads? How is this performance compared when using 200 ?.
