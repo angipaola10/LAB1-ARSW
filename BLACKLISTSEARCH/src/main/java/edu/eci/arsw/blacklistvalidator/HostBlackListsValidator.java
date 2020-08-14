@@ -34,7 +34,6 @@ public class HostBlackListsValidator {
      * @return  Blacklists numbers where the given host's IP address was found.
      */
     public List<Integer> checkHost(String ipaddress, int n) throws InterruptedException {
-
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
         int ocurrencesCount=0;int checkedListsCount=0;
         HostBlacklistsDataSourceFacade skds = HostBlacklistsDataSourceFacade.getInstance();

@@ -1,9 +1,6 @@
-# 🛠️  LABORATORIO 1 
-
+# 🛠️ LABORATORIO 1 
   📌 **Angi Paola Jiménez Pira**
-  
 ## ⚙️ Black List Search
-
 ### Part I - Introduction to threads in JAVA
   1. In agreement with the lectures, complete the classes CountThread, so that they define the life cycle of a thread that prints the numbers between A and B on the screen.
   2. Complete the main method of the CountMainThreads class so that:
@@ -36,7 +33,7 @@
   blacklists. In this method is considered the policy that when a HOST is found in at least five blacklists, it will be registered as not reliable, or as reliable otherwise.
   Additionally, it will return the list of the numbers of the blacklists where the HOST was registered.
     
-   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/Model.png)
+   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/Model.jpg)
  
  When using the module, the evidence that the registration was made as reliable or not reliable is given by the messages of LOGs:
  
@@ -87,22 +84,52 @@ To refactor this code, and have it exploit the multi-core capability of the comp
   
   When starting the program run the monitor jVisualVM, and as you run the tests, review and record the CPU and memory consumption in each case.
   
-   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm.png)
-  
+   1. A single thread
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-1hilo.png)
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-1hilo.png)
+    
+   2. As many threads as processing cores(4 threads):
+     
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-4hilos.png)
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-4hilos.png)
+    
+   3. As many threads as twice the number of processing cores(8 threads):
+     
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-8hilos.png)
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-8hilos.png)
+    
+   4. 50 threads
+     
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-50hilos.png)
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-50hilos.png)
+    
+   5. 100 threads
+    
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-100hilos.png)
+      
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-100hilos.png)
+    
   With the above, and with the given execution times, make a graph of solution time vs. Number of threads. Analyze and hypothesize with your partner for the following
   questions (you can take into account what was reported by jVisualVM):
+  
+   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/grafica.png)
   
    * According to Amdahls law, where S(n) is the theoretical improvement of performance, P the parallel fraction of the algorithm, and n the number of threads, the greater
     n, the better this improvement should be. Why is the best performance not achieved with the 500 threads? How is this performance compared when using 200 ?.
    
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/ahmdahls.png)
+     ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/ahmdahls.png)
      
    * How does the solution behave using as many processing threads as cores compared to the result of using twice as much?
     
    * According to the above, if for this problem instead of 100 threads in a single CPU could be used 1 thread in each of 100 hypothetical machines, Amdahls law would apply
     better ?. If x threads are used instead of 100/x distributed machines (where x is the number of cores of these machines), would it be improved? Explain your answer.
     
- ## ⚙️  Snake Race 
+ ## ⚙️  Snake Race
 
 
 
