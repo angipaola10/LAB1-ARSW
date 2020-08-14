@@ -86,33 +86,27 @@ To refactor this code, and have it exploit the multi-core capability of the comp
   
    1. A single thread
       
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-1hilo.png)
-      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-1hilo.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-1hilo.png)
     
    2. As many threads as processing cores(4 threads):
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-4hilos.png)
-      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-4hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-4hilos.png)
     
    3. As many threads as twice the number of processing cores(8 threads):
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-8hilos.png)
-      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-8hilos.png)
-    
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-8hilos.png){ width: 200px; }
+
    4. 50 threads
      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-50hilos.png)
-      
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-50hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-50hilos.png)
     
    5. 100 threads
     
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualvm-100hilos.png)
+      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/jvisualm-100hilos.png)
       
-      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-100hilos.png)
+   Para todos los casos se obtiene la siguiente salida, ya que se uso la misma dirección ip:
+      
+   ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida-1hilo.png)
     
   With the above, and with the given execution times, make a graph of solution time vs. Number of threads. Analyze and hypothesize with your partner for the following
   questions (you can take into account what was reported by jVisualVM):
@@ -129,7 +123,6 @@ To refactor this code, and have it exploit the multi-core capability of the comp
    * According to the above, if for this problem instead of 100 threads in a single CPU could be used 1 thread in each of 100 hypothetical machines, Amdahls law would apply
     better ?. If x threads are used instead of 100/x distributed machines (where x is the number of cores of these machines), would it be improved? Explain your answer.
     
- ## ⚙️  Snake Race
-
+ ## ⚙️  Snake Race 
 
 
