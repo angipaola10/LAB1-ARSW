@@ -54,12 +54,12 @@ public class Control extends Thread {
             for(PrimeFinderThread t: pft){
                 t.pause();
             }
-            nextReport();
             try {
                 sleep(60);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            nextReport();
         }
         System.out.println("==================================================");
         System.out.println("=              NO HAY MÁS REPORTES               =");
