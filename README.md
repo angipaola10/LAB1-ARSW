@@ -162,4 +162,20 @@ To refactor this code, and have it exploit the multi-core capability of the comp
    * The notify() statement, wakes the first thread  up who called wait() on the object
     
    * The notifyAll() instruction, wake  every thread up that are waiting for the object
+   
+ ### Part 2
+   
+   SnakeRace is an autonomous version, multi-snake of the famous game called 'snake' based on the Joao Andrade´s project-this exercise is a fork thereof
+   
+   * N snakes works as an autonomous way.
+   
+   * The collision concept does not exists among them. The only way that they die is by crashing against a wall
+   
+   * There are mice distributed along the game. As in the classic game, each time a snake eats  a mouse, it grows
+   
+   * There are some points (red arrows) that teleport the snakes
+
+   * The rays causes that the snake increase its speed
+    
+     ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/SNAKERACE/SNAKE_RACE/img/sshot.png)
 
