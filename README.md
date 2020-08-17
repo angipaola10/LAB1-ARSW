@@ -2,10 +2,15 @@
   📌 **Angi Paola Jiménez Pira**
 ## ⚙️ Black List Search
 ### Part I - Introduction to threads in JAVA
+  
   1. In agreement with the lectures, complete the classes CountThread, so that they define the life cycle of a thread that prints the numbers between A and B on the screen.
-  2. Complete the main method of the CountMainThreads class so that:
+ 
+ 2. Complete the main method of the CountMainThreads class so that:
+      
       1. Create 3 threads of type CountThread, assigning the first interval [0..99], the second [99..199], and the third [200..299]. 
+      
       2. Start the three threads with start(). Run and check the output on the screen. 
+      
       3. Change the beginning with start() to run(). How does the output change? Why?
       
          * Salida con el método `start()`:
@@ -16,11 +21,12 @@
            
             ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/salida_run.png) 
       
-         Se observa que la salida cambia, esto se debe a que cuando se ejecuta `thread1.run()`, lo que sucede es que se llama directamente al método `run()` de thread1 el cual
-         es un método secuencial normal, por lo tanto, hasta que no termine de ejecutarse `thread1.run()` no se ejecutará `thread2.run()`; por otro lado, si se ejecuta
+         Se observa que la salida cambia, esto se debe a que cuando se ejecuta `thread1.run()`, lo que sucede es que se llama directamente al método `run()` de thread1 el
+         cual es un método secuencial normal, por lo tanto, hasta que no termine de ejecutarse `thread1.run()` no se ejecutará `thread2.run()`; por otro lado, si se ejecuta
          `thread1.start()` se crea el hilo y si luego se llama a `thread2.start()` se crea otro hilo y estos se ejecutan paralelamente.
    
 ### Part II - Black List Search Exercise
+
   For an automatic computer security surveillance software, a component is being developed to validate the IP addresses in several thousands of known malicious blacklists (of
   malicious hosts), and to report those that exist in at least five of said lists.
   
@@ -118,11 +124,42 @@ To refactor this code, and have it exploit the multi-core capability of the comp
    
      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/BLACKLISTSEARCH/img/ahmdahls.png)
      
+     La ley de Amdahl establece que la mejora obtenida en el rendimiento de un sistema debido a la alteración de uno de sus componentes está limitada por la fracción de
+     tiempo que utiliza dicha mejora en la ejecución de la tarea. Al implementar hilos en nuestro programa de búsqueda, estamos introduciendo una mejora y pudimos comprobarlo
+     al incrementar el numero de hilos, por ejemplo de 1 a 4, observamos que el tiempo de ejecución disminuyó de 1 minuto 43 segundos a 35 segundos, sin embargo, al usar 50 y
+     100 hilos la diferencia entre los tiempos de ejeución fue tan solo de 0,04 segundos; esto también es explicado por la ley de Amdahl, que establece que la mejora
+     incremental en la aceleración conseguida con la mejora de una parte se va reduciendo a medida que se van introduciendo nuevas mejoras, es decir, al medida que aumentamos
+     el número de hilos el tiempo de ejecución que nos ahorraremos será menor, esto explicaría también porque no se lograría un mejor rendimiento con 500 hilos, dicho 
+     rendimiento seria muy parecido al que obtendríamos usando 200 hilos.
+     
    * How does the solution behave using as many processing threads as cores compared to the result of using twice as much?
-    
+   
+     Usando tantos hilos de procesamiento como núcleos, es decir, 4 hilos el programa tarda 35 segundos en hacer la búsqueda, si se usa el doble de hilos, el programa tarda
+     18 segundos, evidenciamos que el tiempo de ejecución se reduce casi a la mitad.
+        
    * According to the above, if for this problem instead of 100 threads in a single CPU could be used 1 thread in each of 100 hypothetical machines, Amdahls law would apply
     better ?. If x threads are used instead of 100/x distributed machines (where x is the number of cores of these machines), would it be improved? Explain your answer.
     
+    ...
+    
  ## ⚙️  Snake Race 
-
+ 
+ ### Part 1
+ 
+   1. Download the project PrimeFinder. this is a program that calculates prime numbers beetween 0 and M (Control.MAXVALUE),concurrently, distributing the searching of them
+   between n (Control.NTHREADS) independent threads.
+   
+   2. Modify the application in such way that each t milliseconds of thread execution, all the threads stop and show the number of primes found until that moment. Then, you
+   have to wait until press ENTER in order to resume the threads execution.Use the synchronization mechanisms given by java (wait y notify, notifyAll).
+   
+   Note that:
+   
+   * The synchronized statement is used in order to get exclusive access to an object
+      
+   * The statement A.wait executed in a B thread set it to suspended mode (Independently that objective A is being used as 'lock') To resume, other active thread can
+    resume B calling notify () to the object used as 'lock' ( in this case A)
+    
+   * The notify() statement, wakes the first thread  up who called wait() on the object
+    
+   * The notifyAll() instruction, wake  every thread up that are waiting for the object
 
