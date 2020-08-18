@@ -1,0 +1,28 @@
+1. Posibles condiciones de carrera
+	
+	* Es posible que dos o más serpientes llegen al mismo tiempo a una celda donde hay un ratón, un flecha o un rayo, 
+	  lo que provocaría una condición de carrera, solo se le asignaría el poder a una de las serpientes lo que no está 
+	  bien considerando que todas llegaron al tiempo.
+	  
+	* Si el atributo growing es menor o igual a 0, es decir, si la serpiente no va crecer se libera la celda correspondiente
+	  al ultimo elemento de su cuerpo y se va a poner dicha celda del tablero en estado libre. Como las serpientes se pueden 
+	  cruzar, la cola de una serpiente puede estar en el cuerpo de otra y al poner dicha celda libre se presentaría una 
+	  condición de carrera, ya que es posible que en esta celda se ponga un ratón lo que no debería suceder ya que aún está el 
+	  cuerpo de una serpiente ahí. 
+	  
+	* Cuando una serpiente come un raton, aparece otro ratón en una posición aleatoria del tablero, para esto se valida que 
+	  dicha posición no tenga elementos, puede que durante el tiempo que pasa luego de que se validó que en esa celda no había
+	  elementos y se coloque el nuevo ratón ahí, una serpiente haya avanzado hacia esa celda, cambiando el valor de la condición 
+	  necesaria para poner el ratón. 
+	  
+	  Podrían presentarse condiciones de carrera en diversos casos en los que se quiera cambiar el valor de una celda, es necesario 
+	  asegurarse de que cada celda solo pueda ser cambiada por un hilo a la vez. 
+
+2. Un uso incorrecto o inadecuado de las colecciones, considerando su manejo concurrente
+   (para ello aumentar la velocidad del juego y ejecutarlo múltiples veces hasta que se produzca un error).
+   
+    * 
+   
+3. Uso innecesario de esperas activas
+
+	*

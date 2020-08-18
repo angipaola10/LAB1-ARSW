@@ -1,6 +1,6 @@
 # 🛠️ LABORATORIO 1 
   📌 **Angi Paola Jiménez Pira**
-## ⚙️ Black List Search
+## 📄 Black List Search
 ### Part I - Introduction to threads in JAVA
   
   1. In agreement with the lectures, complete the classes CountThread, so that they define the life cycle of a thread that prints the numbers between A and B on the screen.
@@ -142,7 +142,7 @@ To refactor this code, and have it exploit the multi-core capability of the comp
     
     ...
     
- ## ⚙️  Snake Race 
+ ## 🐍 Snake Race 
  
  ### Part 1
  
@@ -178,4 +178,32 @@ To refactor this code, and have it exploit the multi-core capability of the comp
    * The rays causes that the snake increase its speed
     
      ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/SNAKERACE/SNAKE_RACE/img/sshot.png)
+	 
+ ### Part 3
+
+ 1. Analyse the code in order to understand how the threads are being used to create an autonomous behavior in the N snakes
+	
+ 2. Accordingly, and using the game logic, identify and write clearly (ANSWERS.txt file)
+
+	1. Possible race conditions
+		
+	  * Es posible que dos o más serpientes llegen al mismo tiempo a una celda donde hay un ratón, un flecha o un rayo, lo que provocaría una condición de carrera, solo
+	  se le asignaría el poder a una de las serpientes lo que no está bien considerando que todas llegaron al tiempo.
+	  
+	  *  Si el atributo growing de un objeto Snake es menor o igual a 0, es decir, si la serpiente no va crecer se libera la celda correspondiente al ultimo elemento de
+	  su cuerpo y se va a poner dicha celda del tablero en estado libre. Como las serpientes se pueden cruzar, la cola de una serpiente puede estar en el cuerpo de otra y
+	  al poner dicha celda libre se presentaría una condición de carrera, ya que es posible que en esta celda se ponga un ratón lo que no debería suceder ya que aún está
+	  el cuerpo de una serpiente ahí.
+	  
+	  * Cuando una serpiente come un raton, aparece otro ratón en una posición aleatoria del tablero, para esto se valida que dicha posición no tenga elementos, puede que
+	  durante el tiempo que pasa luego de que se validó que en esa celda no había elementos y se coloque el nuevo ratón ahí, una serpiente haya avanzado hacia esa celda,
+	  cambiando el valor de la condición necesaria para poner el ratón.Podrían presentarse condiciones de carrera en diversos casos en los que se quiera cambiar el valor
+	  de una celda, es necesario asegurarse de que cada celda solo pueda ser cambiada por un hilo a la vez. 
+		
+ 	2. An incorrect or inappropriate use of collections, considering its concurrent handling(For this increase the game speed and execute it multiples times until an
+	error has been raised).
+	
+	3. Unnecessary use of active waits
+ 
+ 
 

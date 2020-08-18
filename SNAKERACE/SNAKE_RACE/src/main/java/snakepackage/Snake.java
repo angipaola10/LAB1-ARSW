@@ -107,7 +107,6 @@ public class Snake extends Observable implements Runnable {
 
     
     private Cell fixDirection(Cell newCell) {
-
         // revert movement
         if (direction == Direction.LEFT
                 && head.getX() + 1 < GridSize.GRID_WIDTH) {
@@ -120,7 +119,6 @@ public class Snake extends Observable implements Runnable {
         } else if (direction == Direction.DOWN && head.getY() - 1 >= 0) {
             newCell = Board.gameboard[head.getX()][head.getY() - 1];
         }
-
         randomMovement(newCell);
         return newCell;
     }
@@ -158,7 +156,6 @@ public class Snake extends Observable implements Runnable {
                     Board.turbo_boosts[i] = new Cell(-5, -5);
                     hasTurbo = true;
                 }
-
             }
             System.out.println("[" + idt + "] " + "GETTING TURBO BOOST "
                     + newCell.toString());
