@@ -203,7 +203,26 @@ To refactor this code, and have it exploit the multi-core capability of the comp
  	2. An incorrect or inappropriate use of collections, considering its concurrent handling(For this increase the game speed and execute it multiples times until an
 	error has been raised).
 	
-	3. Unnecessary use of active waits
+		  * Se hace un uso incorrecto de la lista enlazada utilizada para representar el cuerpo de la serpiente, esta excepción puede ser lanzada por métodos que han
+		  detectado modificaciones concurrentes de un objeto cuando dicha modificación no está permitida.
+	  
+	    ![alt text](https://raw.githubusercontent.com/angipaola10/LAB1-ARSW/master/SNAKERACE/SNAKE_RACE/img/error.png)
+	
+    3. Unnecessary use of active waits
+     
+ 3. Identify critical regions associated with race conditions, and do something in order to eliminate them.Note that you have to synchronize strictly needed. In the answers
+ document suggest the solution proposed for each item of the point 2. As the same way note that you don´t have to add more race conditions
+ 
+ 4. As you can see, the game is incomplete. Write code in order to implement functionallities through buttons in the GUI to start / Pause / Resume the game: start the game if
+ it has not started, Pause the game if it is on, Resume the game if it is suspended. Keep in mind:
+ 
+    * When the game has been paused, in some point of the screen you have to show 
+   
+      1. the longest snake
+      
+      2. The worst snake:(the first snake  dead)
+      
+      Remember that the pause of the snakes are not instantanious, and you have to guarantee that all the information showed is consistent
  
  
 

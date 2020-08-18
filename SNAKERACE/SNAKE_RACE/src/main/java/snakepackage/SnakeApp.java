@@ -52,7 +52,6 @@ public class SnakeApp {
         
         
         frame.add(board,BorderLayout.CENTER);
-        
         JPanel actionsBPabel=new JPanel();
         actionsBPabel.setLayout(new FlowLayout());
         actionsBPabel.add(new JButton("Action "));
