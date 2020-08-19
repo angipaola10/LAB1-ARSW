@@ -104,7 +104,7 @@ public class Snake extends Observable implements Runnable {
             System.out.println("[" + idt + "] " + "CRASHED AGAINST BARRIER "
                     + newCell.toString());
             snakeEnd=true;
-            SnakeApp.getApp().addDeadSnake();
+            SnakeApp.getApp().addDeadSnake(this);
         }
     }
 

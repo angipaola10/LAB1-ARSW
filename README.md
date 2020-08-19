@@ -140,7 +140,9 @@ To refactor this code, and have it exploit the multi-core capability of the comp
    * According to the above, if for this problem instead of 100 threads in a single CPU could be used 1 thread in each of 100 hypothetical machines, Amdahls law would apply
     better ?. If x threads are used instead of 100/x distributed machines (where x is the number of cores of these machines), would it be improved? Explain your answer.
     
-    ...
+     Si se corren 100 hilos, cada uno en una CPU distinta, podríamos pensar que el objetivo se alcanzaría en un tiempo menor, pero esto no es del todo cierto ya que deben
+	 agruparse los resultados de todos los hilos para obtener la salida deseada, esto implica consumo de recursos físicos, lo que se traduce en tiempo de ejecución. Por 
+	 esta razón puede que no se mejore el rendimiento de nuestro programana al ejecutarlo en 100 máquinas donde cada una corre un hilo. 
     
  ## 🐍 Snake Race 
  

@@ -40,12 +40,14 @@ public class SnakeApp {
     private static Board board;
     private JButton action;
     private int countDeadSnakes;
+    private int worstSnake;
     int nr_selected = 0;
     Thread[] thread = new Thread[MAX_THREADS];
 
     public SnakeApp() {
         app=this;
         countDeadSnakes = 0;
+        worstSnake = -1;
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         frame = new JFrame("The Snake Race");
         frame.setLayout(new BorderLayout());
@@ -85,6 +87,7 @@ public class SnakeApp {
                     } catch (InterruptedException interruptedException) {
                         interruptedException.printStackTrace();
                     }
+                    pauseReport();
                 }
                 else if(action.getText().equals("Resume")){
                     for (Snake s: snakes){
@@ -102,8 +105,6 @@ public class SnakeApp {
     }
 
     private void init() {
-        
-
         for (int i = 0; i != MAX_THREADS; i++) {
             snakes[i] = new Snake(i + 1, spawn[i], i + 1);
             snakes[i].addObserver(board);
@@ -117,8 +118,15 @@ public class SnakeApp {
         }
     }
 
-    public synchronized void addDeadSnake(){
+    public synchronized void addDeadSnake(Snake s){
         countDeadSnakes++;
+        if (worstSnake < 0){
+            for (int i=0; i<snakes.length; i++){
+                if (snakes[i].equals(s)){
+                    worstSnake = i; break;
+                }
+            }
+        }
         if(countDeadSnakes == MAX_THREADS){
             System.out.println("Thread (snake) status:");
             for (int i = 0; i != MAX_THREADS; i++) {
@@ -131,4 +139,28 @@ public class SnakeApp {
         return app;
     }
 
+    private void pauseReport(){
+        System.out.println("===========================================");
+        System.out.println("           INFORME DE PAUSA");
+        System.out.println("===========================================");
+        System.out.println(" -La serpiente más larga es la número: "+ findLongestSnake());
+        if (worstSnake < 0){
+            System.out.println(" -Aún no ha muerto ninguna serpiente");
+        }else{
+            System.out.println(" -La peor serpiente es la número: "+ worstSnake);
+        }
+        System.out.println("===========================================");
+
+
+    }
+
+    private int findLongestSnake(){
+        int max = 0;
+        for (int i=1; i<snakes.length; i++){
+            if(snakes[i].getBody().size() > snakes[max].getBody().size()){
+                max = i;
+            }
+        }
+        return max;
+    }
 }
