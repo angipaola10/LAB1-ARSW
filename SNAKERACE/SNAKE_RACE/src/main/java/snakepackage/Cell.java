@@ -176,7 +176,7 @@ public class Cell {
 	 *
 	 * @return true, 
 	 */
-	public boolean hasElements() {
+	public synchronized boolean hasElements() {
 		if (this.full == true ||  this.food == true
 				|| this.jump_pad == true) {
 			return true;

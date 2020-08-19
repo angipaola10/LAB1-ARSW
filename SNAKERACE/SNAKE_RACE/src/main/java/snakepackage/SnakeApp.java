@@ -8,10 +8,13 @@ import javax.swing.JFrame;
 import enums.GridSize;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author jd-
@@ -35,10 +38,14 @@ public class SnakeApp {
         GridSize.GRID_HEIGHT - 2)};
     private JFrame frame;
     private static Board board;
+    private JButton action;
+    private int countDeadSnakes;
     int nr_selected = 0;
     Thread[] thread = new Thread[MAX_THREADS];
 
     public SnakeApp() {
+        app=this;
+        countDeadSnakes = 0;
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         frame = new JFrame("The Snake Race");
         frame.setLayout(new BorderLayout());
@@ -49,13 +56,44 @@ public class SnakeApp {
         frame.setLocation(dimension.width / 2 - frame.getWidth() / 2,
                 dimension.height / 2 - frame.getHeight() / 2);
         board = new Board();
-        
-        
         frame.add(board,BorderLayout.CENTER);
         JPanel actionsBPabel=new JPanel();
         actionsBPabel.setLayout(new FlowLayout());
-        actionsBPabel.add(new JButton("Action "));
+        action = new JButton("Start");
+        actionsBPabel.add(action);
         frame.add(actionsBPabel,BorderLayout.SOUTH);
+        actions();
+    }
+
+    private void actions(){
+        action.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (action.getText().equals(("Start"))){
+                    for (int i = 0; i != MAX_THREADS; i++) {
+                        thread[i].start();
+                    }
+                    action.setText("Pause");
+                }
+                else if(action.getText().equals("Pause")){
+                    for (Snake s: snakes){
+                        s.pause();
+                    }
+                    action.setText("Resume");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                }
+                else if(action.getText().equals("Resume")){
+                    for (Snake s: snakes){
+                        s.resume();
+                    }
+                    action.setText("Pause");
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -65,36 +103,28 @@ public class SnakeApp {
 
     private void init() {
         
+
         for (int i = 0; i != MAX_THREADS; i++) {
-            
             snakes[i] = new Snake(i + 1, spawn[i], i + 1);
             snakes[i].addObserver(board);
             thread[i] = new Thread(snakes[i]);
-            thread[i].start();
         }
-
         frame.setVisible(true);
-
-            
-        while (true) {
-            int x = 0;
-            for (int i = 0; i != MAX_THREADS; i++) {
-                if (snakes[i].isSnakeEnd() == true) {
-                    x++;
-                }
-            }
-            if (x == MAX_THREADS) {
-                break;
-            }
-        }
-
 
         System.out.println("Thread (snake) status:");
         for (int i = 0; i != MAX_THREADS; i++) {
             System.out.println("["+i+"] :"+thread[i].getState());
         }
-        
+    }
 
+    public synchronized void addDeadSnake(){
+        countDeadSnakes++;
+        if(countDeadSnakes == MAX_THREADS){
+            System.out.println("Thread (snake) status:");
+            for (int i = 0; i != MAX_THREADS; i++) {
+                System.out.println("["+i+"] :"+thread[i].getState());
+            }
+        }
     }
 
     public static SnakeApp getApp() {
